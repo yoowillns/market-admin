@@ -1,0 +1,20 @@
+<template name="admin">
+    {{#if isInRole 'admin'}}
+        {{>adminSuccess}}
+    {{else}}
+        {{>adminError}}
+    {{/if}}
+</template>
+
+<template name="adminSuccess">
+    <h3>Administrador</h3>
+
+
+</template>
+
+<template name="adminError">
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Alerta!</strong> Acceso no autorizado.
+    </div>
+</template>

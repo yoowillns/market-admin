@@ -7,6 +7,8 @@ import {Meteor} from  'meteor/meteor';
 //Importar Layouts y templates
 import '../../ui/layouts/layout.js';
 import '../../ui/home/home.js';
+import '../../ui/admin/admin.js';
+import '../../ui/products/products.js';
 
 FlowRouter.route('/', {
     name: 'home',
@@ -18,5 +20,13 @@ FlowRouter.route('/', {
 FlowRouter.route('/admin',{
     name: 'admin',
     action:function(){
+        BlazeLayout.render('layout', { main: 'admin',section :'' });
+    }
+});
+
+FlowRouter.route('/products',{
+    name: 'products',
+    action:function(){
+        BlazeLayout.render('layout', { main: 'products',section :'' });
     }
 });
