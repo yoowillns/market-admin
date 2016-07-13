@@ -20,13 +20,13 @@ FlowRouter.route('/', {
 FlowRouter.route('/admin',{
     name: 'admin',
     action:function(){
-        BlazeLayout.render('layout', { main: 'admin',section :'' });
+        BlazeLayout.render('layout2', { main2: 'admin',section2 :'' });
     }
 });
 
 FlowRouter.route('/products',{
     name: 'products',
     action:function(){
-        BlazeLayout.render('layout', { main: 'products',section :'' });
+        BlazeLayout.render('layout', { main: 'products',section :'carrito' });
     }
 });

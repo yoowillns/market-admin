@@ -25,3 +25,5 @@ Meteor.methods({
         return Orders.insert({user:Meteor.userId(),product:productID});
     },
 });
+
+

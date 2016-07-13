@@ -15,4 +15,37 @@
 
 <template name="productsList">
     <h2>Lista de productos</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nombre producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Añadir a Carrito</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each productos }}
+            <tr>
+                <td>{{nombre}}</td>
+                <td>{{cantidad}}</td>
+                <td>{{precio}}</td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-xs btn-success carrito" idProducto="{{_id}}"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+                    </div>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</template>
+
+<template name="carrito">
+    <h4>Productos en carrito: {{ getCarrito }}</h4>
+    {{#if carritoVacio }}
+        <label>Sin registros</label>
+    {{else}}
+        <button type="button" class="btn btn-success" id="bcarrito">Registrar Pedido</button>
+    {{/if}}
 </template>

@@ -1,4 +1,6 @@
 import {Meteor} from 'meteor/meteor';
+import './methods.js';
+
 Meteor.startup(function (){
     Accounts.onCreateUser(function(opciones, user){
         if(!user.profile){

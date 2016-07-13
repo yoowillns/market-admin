@@ -7,9 +7,98 @@
 </template>
 
 <template name="adminSuccess">
-    <h3>Administrador</h3>
-
-
+    <h3>Sitios Administrativo</h3>
+    <h4>Bienvenido {{ currentUser.username }}</h4>
+    <div class="row">
+        <div class="col-xs-3">
+            <h3>Registrar Productos</h3>
+            <form role="form" id="fprodcuto" name="fproducto">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre">
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Cantidad:</label>
+                    <input type="text" class="form-control" id="cantidad" name="cantidad">
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Precio:</label>
+                    <input type="text" class="form-control" id="precio" name="precio">
+                </div>
+                <button type="submit" id="bregistrar" class="btn btn-default btn-info">Registrar Producto</button>
+            </form>
+        </div>
+        <div class="col-xs-6">
+            <h3>Lista de Productos</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Nombre producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Opciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {{#each productos }}
+                        <tr>
+                            <td>{{nombre}}</td>
+                            <td>{{cantidad}}</td>
+                            <td>{{precio}}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-xs btn-danger eliminar"><span class="glyphicon glyphicon-trash"></span></button>
+                                    <button type="button" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></button>
+                                </div>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-3">
+            <h3>Lista de pedidos</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Cantidad de pedidos</th>
+                    <th>Opciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each pedidos }}
+                    <tr>
+                        <td>{{ getPedidoUser usuario }}</td>
+                        <td>{{ getCantidadPedido usuario }}</td>
+                        <td> <button type="button" class="btn btn-xs btn-success pedido"><span class="glyphicon glyphicon-zoom-in"></span></button></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            {{#if getDetalle }}
+                <h3>Pedido a Detalle</h3>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Producto</th>
+                        <th>Opciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each pedidosUsuario }}
+                        <tr>
+                            <td>{{ getPedidoUser usuario }}</td>
+                            <td>{{ getProducto pedido }}</td>
+                            <td></td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+    </div>
 </template>
 
 <template name="adminError">
